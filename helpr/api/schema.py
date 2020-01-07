@@ -1,4 +1,5 @@
 import graphene
+import graphql_jwt
 from graphene_django.types import DjangoObjectType, ObjectType
 from .models import User
 from django.views.decorators.csrf import csrf_protect
@@ -81,6 +82,10 @@ class UpdateUser(graphene.Mutation):
         return UpdateUser(ok=ok, user=None)
 
 class Mutation(graphene.ObjectType):
+    token_auth = graphql_jwt.ObtainJSONWebToken.Field()
+    verify_token = graphql_jwt.Verify.Field()
+    refresh_token = graphql_jwt.Refresh.Field()
+
     create_user = CreateUser.Field()
     update_user = UpdateUser.Field()
 
