@@ -15,13 +15,13 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     '''
-    User info and Profile
+    User info and profile
     '''
     # profile_picture = models.ImageField(upload_to='profile')
-    # date_joined = models.DateTimeField(auto_now=True)
-    # location = models.IntegerField(null=True, blank=True)
-    # bio = models.TextField(max_length=500, blank=True)
+    # location = models.idk(null=True, blank=True)
+    # blurb = models.TextField(max_length=250, blank=True)
     age = models.PositiveSmallIntegerField(null=True, blank=True)
+    # birthday = models.DateField()
 
     GENDER_CHOICES = (
     	('M', 'Male'),
@@ -32,3 +32,27 @@ class User(AbstractUser):
 
     def __str__(self):
     	return self.username
+
+# class Service(models.Model):
+#     '''
+#     Service a user provides
+#     '''
+#     title = models.CharField(max_length=250)
+#     # profile_picture = models.ImageField(upload_to='profile')
+#     phone_number = models.PositiveIntegerField()
+#     email = models.CharField(max_length=150)
+#     website = models.CharField(max_length=150)
+#     location = models.idk()
+#     category = models.ManyToManyField(Category)
+#
+#     def __str__(self):
+#     	return self.title
+#
+# class Category(models.Model):
+#     '''
+#     All possible categories
+#     '''
+#     category = models.CharField(max_length=1, choices=CATEGORY_CHOICES, null=True, blank=True)
+#
+#     def __str__(self):
+#     	return self.category
