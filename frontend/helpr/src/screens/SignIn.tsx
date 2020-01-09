@@ -4,12 +4,17 @@ import {
   // Button,
   // StyleSheet,
   // ScrollView,
-  Text,
+  Text, KeyboardAvoidingView,
   // View,
   // KeyboardAvoidingView,
 } from 'react-native';
 // import { _signInAsync } from './auth.js';
 // import t from 'tcomb-form-native';
+import { TextField } from '../components/FormFields';
+import { Formik, Form, useField } from 'formik';
+import { Container } from '../../theme';
+import { Button } from '../components/Button';
+import * as Yup from 'yup';
 
 export default class SignInScreen extends React.Component {
   static navigationOptions = {
@@ -17,82 +22,95 @@ export default class SignInScreen extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     return (
-      // <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-      <Text>Heading 1</Text>
+      // <KeyboardAvoidingView behavior="padding" enabled>
+        <Formik
+          initialValues={{ email: '' }}
+          onSubmit={values => console.log(values)}
+        >
+          {({ handleChange, handleBlur, handleSubmit, values }) => (
+            <Container>
+              <TextField label={'Email'} />
+              <TextField label={'Password'} />
+              <Button onPress={handleSubmit} title="Submit" />
+            </Container>
+          )}
+        </Formik>
+      // </KeyboardAvoidingView>
+      // <Formik
+      //   initialValues={{
+      //     firstName: '',
+      //     lastName: '',
+      //     email: '',
+      //     acceptedTerms: false, // added for our checkbox
+      //     jobType: '', // added for our select
+      //   }}
+      //   validationSchema={Yup.object({
+      //     firstName: Yup.string()
+      //       .max(15, 'Must be 15 characters or less')
+      //       .required('Required'),
+      //     lastName: Yup.string()
+      //       .max(20, 'Must be 20 characters or less')
+      //       .required('Required'),
+      //     email: Yup.string()
+      //       .email('Invalid email address')
+      //       .required('Required'),
+      //     acceptedTerms: Yup.boolean()
+      //       .required('Required')
+      //       .oneOf([true], 'You must accept the terms and conditions.'),
+      //     jobType: Yup.string()
+      //       .oneOf(
+      //         ['designer', 'development', 'product', 'other'],
+      //         'Invalid Job Type'
+      //       )
+      //       .required('Required'),
+      //   })}
+      //   onSubmit={(values, { setSubmitting }) => {
+      //     setTimeout(() => {
+      //       alert(JSON.stringify(values, null, 2));
+      //       setSubmitting(false);
+      //     }, 400);
+      //   }}
+      // >
+      //   <Form>
+      //     <TextField
+      //       label="First Name"
+      //       name="firstName"
+      //       type="text"
+      //       placeholder="Jane"
+      //     />
+      //     <TextField
+      //       label="Last Name"
+      //       name="lastName"
+      //       type="text"
+      //       placeholder="Doe"
+      //     />
+      //     <TextField
+      //       label="Email Address"
+      //       name="email"
+      //       type="email"
+      //       placeholder="jane@formik.com"
+      //     />
+      //     <SelectField label="Job Type" name="jobType">
+      //       <option value="">Select a job type</option>
+      //       <option value="designer">Designer</option>
+      //       <option value="development">Developer</option>
+      //       <option value="product">Product Manager</option>
+      //       <option value="other">Other</option>
+      //     </SelectField>
+      //     <CheckboxField name="acceptedTerms">
+      //       I accept the terms and conditions
+      //     </CheckboxField>
 
-          // <Formik
-          //   initialValues={{ name: '', email: '' }}
-          //   validationSchema={Yup.object({
-          //     name: Yup.string()
-          //       .required('Required'),
-          //     email: Yup.string()
-          //       .email('Invalid Email')
-          //       .required('Required'),
-          //   })}
-          //   onSubmit={(values, formikActions) => {
-          //     setTimeout(() => {
-          //       Alert.alert(JSON.stringify(values));
-          //       // Important: Make sure to setSubmitting to false so our loading indicator
-          //       // goes away.
-          //       formikActions.setSubmitting(false);
-          //     }, 500);
-          //   }}>
-          //   {props => (
-          //     <View>
-          //      <TextInput
-          //         onChangeText={props.handleChange('name')}
-          //         onBlur={props.handleBlur('name')}
-          //         value={props.values.name}
-          //         autoFocus
-          //         placeholder="Your Name"
-          //         style={styles.input}
-          //         onSubmitEditing={() => {
-          //           // on certain forms, it is nice to move the user's focus
-          //           // to the next input when they press enter.
-          //           this.emailInput.focus()
-          //         }}
-          //       />
-          //       {props.touched.name && props.errors.name ? (
-          //         <Text style={styles.error}>{props.errors.name}</Text>
-          //       ) : null}
-          //       <TextInput
-          //         onChangeText={props.handleChange('email')}
-          //         onBlur={props.handleBlur('email')}
-          //         value={props.values.email}
-          //         placeholder="Email Address"
-          //         style={styles.input}
-          //         ref={el => this.emailInput = el}
-          //       />
-          //       {props.touched.email && props.errors.email ? (
-          //         <Text style={styles.error}>{props.errors.email}</Text>
-          //       ) : null}
-          //       <Button
-          //         onPress={props.handleSubmit}
-          //         color="black"
-          //         mode="contained"
-          //         loading={props.isSubmitting}
-          //         disabled={props.isSubmitting}
-          //         style={{ marginTop: 16 }}>
-          //         Submit
-          //       </Button>
-          //       <Button
-          //         onPress={props.handleReset}
-          //         color="black"
-          //         mode="outlined"
-          //         disabled={props.isSubmitting}
-          //         style={{ marginTop: 16 }}>
-          //         Reset
-          //       </Button>
-          //     </View>
-          //   )}
-          // </Formik>
+      //     <button type="submit">Submit</button>
+      //   </Form>
+      // </Formik>
           // <Button
           //   title="Sign in!"
           //   color="#FF7A89"
           //   onPress={() => _signInAsync(this.props.navigation, this._form)}
           // />
-      // </KeyboardAvoidingView>
     );
   }
 }

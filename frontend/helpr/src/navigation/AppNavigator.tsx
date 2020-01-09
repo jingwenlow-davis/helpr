@@ -8,7 +8,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import AuthLoadingScreen from '../screens/auth';
 import WelcomeScreen from '../screens/Welcome';
 import SignInScreen from '../screens/SignIn';
-// import SignUpScreen from './screens/SignUp';
+import SignUpScreen from '../screens/SignUp';
 
 export const url = 'http://7836cdcd.ngrok.io';
 
@@ -16,7 +16,7 @@ const AuthStack = createStackNavigator(
   {
     Welcome: WelcomeScreen,
     SignIn: SignInScreen,
-    // SignUp: SignUpScreen,
+    SignUp: SignUpScreen,
   },
   // {
   //   defaultNavigationOptions: ({ navigation }) => ({

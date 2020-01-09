@@ -8,11 +8,14 @@ export default class WelcomeScreen extends React.Component {
     title: 'Welcome',
   };
 
+  public navigateSignIn = () => this.props.navigation.navigate('SignIn');
+  public navigateSignUp = () => this.props.navigation.navigate('SignUp');
+
   render() {
     return (
       <Container>
-        <Button title={'Sign In'} />
-        <Button title={'Sign Up'} />
+        <Button title={'Sign In'} onPress={this.navigateSignIn} />
+        <Button title={'Sign Up'} onPress={this.navigateSignUp} />
       </Container>
     );
   }
