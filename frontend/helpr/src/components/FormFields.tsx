@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import { TextInput } from 'react-native';
-import { Text } from '../../theme';
+import { Text } from '.';
 
 interface TextFieldProps {
   label: string;

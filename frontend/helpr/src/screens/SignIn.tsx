@@ -10,10 +10,8 @@ import {
 } from 'react-native';
 // import { _signInAsync } from './auth.js';
 // import t from 'tcomb-form-native';
-import { TextField } from '../components/FormFields';
 import { Formik, Form, useField } from 'formik';
-import { Container } from '../../theme';
-import { Button } from '../components/Button';
+import { Button, Container, TextField } from '../components';
 import * as Yup from 'yup';
 
 export default class SignInScreen extends React.Component {

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ButtonWrapper, ButtonText, Text } from '../../theme';
+import styled from 'styled-components'
+import { Text } from '.';
 
 interface ButtonProps {
   title: string;
@@ -16,3 +17,15 @@ export const Button = (props: ButtonProps) => (
   </ButtonWrapper>
 )
 
+// STYLING
+const ButtonWrapper = styled.TouchableOpacity`
+  background:#88B9C1;
+  padding: 12px 28px;
+  margin: 8px 8px;
+  border-radius: 32px;
+`;
+
+const ButtonText = styled.Text`
+  color: white;
+  font-size: 16px;
+`;
