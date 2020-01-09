@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 // import {url} from '../App.js';
-import Cookies from "universal-cookie";
+// import Cookies from "universal-cookie";
 // import Expo from 'expo-server-sdk';
 // import {Constants} from 'expo';
 import * as Expo from 'expo'
@@ -85,8 +85,8 @@ export const _signInAsync = async (navigation, data) => {
 
 // Decide if user is logged in or not App or Auth screen is showed
 export default class AuthLoadingScreen extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._bootstrapAsync();
   }
 

@@ -6,7 +6,7 @@ import {
   // ScrollView,
   Text,
   // View,
-  KeyboardAvoidingView,
+  // KeyboardAvoidingView,
 } from 'react-native';
 // import { _signInAsync } from './auth.js';
 // import t from 'tcomb-form-native';
@@ -19,7 +19,7 @@ export default class SignInScreen extends React.Component {
   render() {
     return (
       // <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-      <Text h1>Heading 1</Text>
+      <Text>Heading 1</Text>
 
           // <Formik
           //   initialValues={{ name: '', email: '' }}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Container } from '../../theme';
+import { Button } from '../components/Button';
 
 export default class WelcomeScreen extends React.Component {
   static navigationOptions = {
@@ -9,19 +10,23 @@ export default class WelcomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <Container>
         <Button title={'Sign In'} />
         <Button title={'Sign Up'} />
-      </View>
+      </Container>
     );
   }
 }
 
-const styles = StyleSheet.create({
+
+export const globalStyles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
+  buttonz: {
+    backgroundColor: 'white'
+  }
 });

@@ -3,14 +3,12 @@ import {
   createSwitchNavigator,
   createAppContainer,
 } from 'react-navigation';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+// import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
-import AuthLoadingScreen from './auth';
-import WelcomeScreen from './Welcome';
-import SignInScreen from './SignIn';
+import AuthLoadingScreen from '../screens/auth';
+import WelcomeScreen from '../screens/Welcome';
+import SignInScreen from '../screens/SignIn';
 // import SignUpScreen from './screens/SignUp';
-import { ThemeProvider } from 'react-native-elements';
-import { theme } from './theme';
 
 export const url = 'http://7836cdcd.ngrok.io';
 
@@ -42,20 +40,16 @@ const AuthStack = createStackNavigator(
   // }
 );
 
-export default class AppNavigator extends React.Component {
-  render() {
-    return (
-      createAppContainer(
-        createSwitchNavigator(
-          {
-            AuthLoading: AuthLoadingScreen,
-            // App: AppStack,
-            Auth: AuthStack,
-          },
-          {
-            initialRouteName: 'AuthLoading',
-          }
-        )
-      )
-  )}
-};
+export const AppNavigator = 
+  createAppContainer(
+    createSwitchNavigator(
+      {
+        AuthLoading: AuthLoadingScreen,
+        // App: AppStack,
+        Auth: AuthStack,
+      },
+      {
+        initialRouteName: 'AuthLoading',
+      }
+    )
+  )
