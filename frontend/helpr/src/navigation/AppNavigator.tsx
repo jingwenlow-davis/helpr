@@ -3,14 +3,21 @@ import {
   createSwitchNavigator,
   createAppContainer,
 } from 'react-navigation';
-// import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import AuthLoadingScreen from '../screens/auth';
+import Searchcreen from '../screens/Search';
 import WelcomeScreen from '../screens/Welcome';
 import SignInScreen from '../screens/SignIn';
 import SignUpScreen from '../screens/SignUp';
 
 export const url = 'http://7836cdcd.ngrok.io';
+
+const AppStack = createBottomTabNavigator(
+  {
+    Search: Searchcreen
+  },
+)
 
 const AuthStack = createStackNavigator(
   {
@@ -45,7 +52,7 @@ export const AppNavigator =
     createSwitchNavigator(
       {
         AuthLoading: AuthLoadingScreen,
-        // App: AppStack,
+        App: AppStack,
         Auth: AuthStack,
       },
       {

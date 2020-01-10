@@ -12,7 +12,7 @@ export default class WelcomeScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Container center>
         <Button title={'Sign In'} onPress={this.navigateSignIn} />
         <Button title={'Sign Up'} onPress={this.navigateSignUp} />
       </Container>

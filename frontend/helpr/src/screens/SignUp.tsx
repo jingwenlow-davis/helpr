@@ -22,6 +22,7 @@ export default class SignUpScreen extends React.Component {
     console.log(this.props)
     return (
       // <KeyboardAvoidingView behavior="padding" enabled>
+      <Container center>
         <Formik
           initialValues={{ email: '' }}
           onSubmit={values => console.log(values)}
@@ -36,6 +37,7 @@ export default class SignUpScreen extends React.Component {
             </Container>
           )}
         </Formik>
+      </Container>
     );
   }
 }
