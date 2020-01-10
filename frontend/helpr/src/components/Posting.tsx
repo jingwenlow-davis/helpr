@@ -1,19 +1,34 @@
 import React from 'react';
 import styled from 'styled-components'
-import { Card, Text } from '../components';
+// import { Rating } from 'react-native-elements';
+import { Card, Container, Rating, Text } from '../components';
 
 export const Posting = (props) => (
   <Card>
-    {/* <Image
-      source={require('../assets/images/default-profile-picture.png')}
-    /> */}
-    <Text>{props.title}</Text>
+    <Container row>
+      <Image
+        source={require('../assets/images/default-profile-picture.png')}
+      />
+      <Container column>
+        <Text type={'header'}>{props.title}</Text>
+        <Container row>
+          <Rating
+            readonly
+            startingValue={3.5}
+            // style={{ styles.rating }}
+          />
+          <Text type={'subheaader'}>(100)</Text>
+        </Container>
+      </Container>
+    </Container>
   </Card>
 )
 
 // STYLING
 const Image = styled.Image`
-  height: 30px;
-  width: 30px;
+  margin-right: 16px;
+  height: 50px;
+  width: 50px;
   border-radius: 8;
+  resizeMode: contain;
 `;

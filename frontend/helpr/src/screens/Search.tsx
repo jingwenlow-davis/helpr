@@ -54,7 +54,7 @@ export default function SerachScreen() {
   }
 
   return (
-    <Container abackgroundColor={'lightgrey'}>
+    <Container backgroundColor={'lightgrey'}>
       <FlatList
         data={data}
         renderItem={({item}) => 

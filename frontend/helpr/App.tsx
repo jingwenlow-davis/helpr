@@ -24,6 +24,7 @@ export default class App extends React.Component<{}, AppState> {
   async fetchFonts() {
     await Font.loadAsync({
       'montserrat': require('./src/assets/fonts/Montserrat/Montserrat-Regular.ttf'),
+      'montserrat-bold': require('./src/assets/fonts/Montserrat/Montserrat-Bold.ttf'),
     })
     this.setState({fontLoaded: true});
   }

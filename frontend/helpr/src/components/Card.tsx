@@ -11,7 +11,7 @@ export const Card = (props) => (
 // STYLING
 const StyledCard = styled.View`
   margin: 4px 8px;
-  padding: 12px;
+  padding: 16px;
   border-radius: 8;
   background-color: white;
   shadow-color: #000;
