@@ -17,7 +17,7 @@ export const Posting = (props) => (
             startingValue={3.5}
             // style={{ styles.rating }}
           />
-          <Text type={'subheaader'}>(100)</Text>
+          <Text>(100)</Text>
         </Container>
       </Container>
     </Container>

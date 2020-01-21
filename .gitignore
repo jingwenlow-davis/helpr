@@ -20,9 +20,7 @@ frontend/*.orig.*
 frontend/web-build/
 frontend/web-report/
 
-# macOS
-.DS_Store
-.DS_STORE
+__pycache__
 
 # macOS
 .DS_Store

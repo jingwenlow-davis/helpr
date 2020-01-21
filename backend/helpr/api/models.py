@@ -19,40 +19,58 @@ class User(AbstractUser):
     '''
     # profile_picture = models.ImageField(upload_to='profile')
     # location = models.idk(null=True, blank=True)
-    # blurb = models.TextField(max_length=250, blank=True)
-    age = models.PositiveSmallIntegerField(null=True, blank=True)
-    # birthday = models.DateField()
 
     GENDER_CHOICES = (
     	('M', 'Male'),
     	('F', 'Female'),
     	('O', 'Other'),
     )
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, null=True, blank=True)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES, null=True, blank=True)
+
+    # lister fields
+    helpr = models.BooleanField(default=False) # if this use is listing anything or just a user
+    birthday = models.DateField(null=True, blank=True)
 
     def __str__(self):
     	return self.username
 
-# class Service(models.Model):
-#     '''
-#     Service a user provides
-#     '''
-#     title = models.CharField(max_length=250)
-#     # profile_picture = models.ImageField(upload_to='profile')
-#     phone_number = models.PositiveIntegerField()
-#     email = models.CharField(max_length=150)
-#     website = models.CharField(max_length=150)
-#     location = models.idk()
-#     category = models.ManyToManyField(Category)
-#
-#     def __str__(self):
-#     	return self.title
-#
-# class Category(models.Model):
-#     '''
-#     All possible categories
-#     '''
-#     category = models.CharField(max_length=1, choices=CATEGORY_CHOICES, null=True, blank=True)
-#
-#     def __str__(self):
-#     	return self.category
+class Category(models.Model):
+    '''
+    All possible categories
+    '''
+
+    CATEGORY_CHOICES = (
+    	('photographer', 'photographer'),
+    	('plumber', 'plumber'),
+    	('landscaper', 'landscaper'),
+    	('personal_trainer', 'personal trainer'),
+    	('tutor', 'tutor'),
+    	('carpenter', 'carpenter'),
+    	('electrician', 'electrician'),
+    	('pool_service', 'pool service'),
+    	('gardener', 'gardnerer'),
+    	('babysitting', 'babysitting'),
+    )
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, null=True, blank=True)
+
+    def __str__(self):
+    	return self.category
+
+class Listing(models.Model):
+    '''
+    Listing a user posts
+    '''
+    title = models.CharField(max_length=250)
+    user = models.ManyToManyField(User)
+    # profile_picture = models.ImageField(upload_to='profile')
+    # location = models.idk()
+    # images
+    blurb = models.TextField(max_length=500, null=True, blank=True)
+    # phone_number = models.PositiveIntegerField(null=True, blank=True)
+    # email = models.CharField(max_length=150)
+    website = models.CharField(max_length=150, null=True, blank=True)
+    category = models.ManyToManyField(Category)
+    # ratings = models.
+
+    def __str__(self):
+    	return self.title

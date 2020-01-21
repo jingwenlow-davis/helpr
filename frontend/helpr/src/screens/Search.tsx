@@ -45,13 +45,13 @@ export default function SerachScreen() {
     setLoading(false);
   });
 
-  if (loading) {
-    return (
-      <Container>
-        <ActivityIndicator />
-      </Container>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <Container>
+  //       <ActivityIndicator />
+  //     </Container>
+  //   );
+  // }
 
   return (
     <Container backgroundColor={'lightgrey'}>
